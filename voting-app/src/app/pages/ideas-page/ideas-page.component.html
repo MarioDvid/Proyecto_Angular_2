@@ -1,0 +1,15 @@
+<div class="container">
+  <h2>Registrar nueva idea</h2>
+
+  <app-idea-form (ideaCreated)="onIdeaCreated($event)"></app-idea-form>
+
+  <hr>
+
+  <h2>Listado de ideas</h2>
+  <app-idea-list
+    [ideas]="(ideas$ | async) || []"
+    (delete)="onDeleteIdea($event)"
+    (upvote)="onUpvote($event)"
+    (downvote)="onDownvote($event)">
+  </app-idea-list>
+</div>

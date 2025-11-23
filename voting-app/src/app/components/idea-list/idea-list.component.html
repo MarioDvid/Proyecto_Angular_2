@@ -1,0 +1,35 @@
+<ul class="list-group">
+  <li
+    class="list-group-item d-flex justify-content-between align-items-center"
+    *ngFor="let idea of ideas">
+
+    <div>
+      <h5>{{ idea.title }}</h5>
+      <small class="text-muted">Categoría: {{ idea.category }}</small>
+      <div>
+        <span class="badge bg-success me-2">👍 {{ idea.votesUp }}</span>
+        <span class="badge bg-danger">👎 {{ idea.votesDown }}</span>
+      </div>
+    </div>
+
+    <div>
+      <button type="button"
+              class="btn btn-sm btn-outline-success me-1"
+              (click)="onUpvote(idea.id)">
+        +1
+      </button>
+
+      <button type="button"
+              class="btn btn-sm btn-outline-danger me-1"
+              (click)="onDownvote(idea.id)">
+        -1
+      </button>
+
+      <button type="button"
+              class="btn btn-sm btn-outline-secondary"
+              (click)="onDelete(idea.id)">
+        Borrar
+      </button>
+    </div>
+  </li>
+</ul>
